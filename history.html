@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>QR Code History</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="history-page">
+  <!-- Geri dönüş butonu -->
+  <div class="back-btn-container">
+    <a href="dex.html" class="back-btn">
+      <i class="fa-solid fa-chevron-left"></i>
+    </a>
+  </div>
+
+  <!-- Dil seçici -->
+  <div class="language-selector">
+    <button class="language-btn">
+      <i class="fa-solid fa-earth-americas"></i>
+    </button>
+    <div class="language-dropdown">
+      <a href="#" data-lang="de">Deutsch</a>
+      <a href="#" data-lang="en">English</a>
+      <a href="#" data-lang="fr">Français</a>
+      <a href="#" data-lang="it">Italiano</a>
+      <a href="#" data-lang="ru">Русский</a>
+      <a href="#" data-lang="tr">Türkçe</a>
+    </div>
+  </div>
+
+  <div class="history-wrapper">
+    <header>
+      <h1 class="history-page-title">QR Code History</h1>
+    </header>
+    <div class="qr-history"></div>
+  </div>
+
+  <script src="./history.js"></script>
+</body>
+</html> 

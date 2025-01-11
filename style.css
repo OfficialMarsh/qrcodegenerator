@@ -1,0 +1,479 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  padding: 0 10px;
+  min-height: 100vh;
+  align-items: center;
+  background: #47289d;
+  justify-content: center;
+  color: #fff;
+}
+
+.wrapper {
+  height: 265px;
+  max-width: 410px;
+  background: #222;
+  border-radius: 7px;
+  padding: 20px 25px 0;
+  transition: height 0.2s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.wrapper.active {
+  height: 530px;
+}
+
+header h1 {
+  font-size: 21px;
+  font-weight: 500;
+  color: #fff;
+}
+
+header p {
+  margin-top: 5px;
+  color: #aaa;
+  font-size: 16px;
+}
+
+.wrapper .form {
+  margin: 20px 0 25px;
+}
+
+.form :where(input, button) {
+  width: 100%;
+  height: 55px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  transition: 0.1s ease;
+}
+
+.form input {
+  font-size: 18px;
+  padding: 0 17px;
+  border: 1px solid #999;
+  color: #fff;
+  background: #333;
+}
+
+.form input:focus {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
+}
+
+.form input::placeholder {
+  color: #999;
+}
+
+.form button {
+  color: #fff;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 17px;
+  background: #444;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-bottom: 10px;
+}
+
+.form button:hover {
+  background: #333;
+}
+
+.form button:active {
+  transform: scale(0.95);
+}
+
+.qr-code {
+  opacity: 0;
+  display: flex;
+  padding: 33px 0;
+  border-radius: 5px;
+  align-items: center;
+  pointer-events: none;
+  justify-content: center;
+  border: 1px solid #ccc;
+}
+
+.wrapper.active .qr-code {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.5s 0.05s ease;
+}
+
+.qr-code img {
+  width: 170px;
+}
+
+@media (max-width: 430px) {
+  .wrapper {
+    height: 255px;
+    padding: 16px 20px;
+  }
+  .wrapper.active {
+    height: 510px;
+  }
+  header p {
+    color: #696969;
+  }
+  .form :where(input, button) {
+    height: 52px;
+  }
+  .qr-code img {
+    width: 160px;
+  }
+  [lang="de"] .wrapper {
+    height: 265px;
+  }
+  [lang="ru"] .wrapper {
+    height: 265px;
+  }
+  [lang="fr"] .wrapper {
+    height: 265px;
+  }
+  [lang="it"] .wrapper {
+    height: 265px;
+  }
+  [lang="tr"] .wrapper {
+    height: 265px;
+  }
+}
+
+.language-selector {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.language-btn {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.language-btn:hover {
+  background: #444;
+}
+
+.language-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #222;
+  border-radius: 5px;
+  padding: 5px 0;
+  margin-top: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  display: none;
+  min-width: 150px;
+}
+
+.language-dropdown.show {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+.language-dropdown a {
+  display: block;
+  padding: 8px 15px;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.language-dropdown a:hover {
+  background: #333;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+[lang="de"] .wrapper {
+  height: 265px;
+}
+
+[lang="ru"] .wrapper {
+  height: 265px;
+}
+
+[lang="fr"] .wrapper {
+  height: 265px;
+}
+
+[lang="it"] .wrapper {
+  height: 265px;
+}
+
+[lang="tr"] .wrapper {
+  height: 265px;
+}
+
+/* Geçmiş container stilleri */
+.qr-history-container {
+  max-width: 410px;
+  margin-top: 30px;
+  background: #222;
+  border-radius: 7px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.history-title {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.qr-history {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #333;
+  transition: background 0.2s ease;
+}
+
+.history-item:hover {
+  background: #2a2a2a;
+}
+
+.history-item img {
+  margin-right: 15px;
+  border-radius: 4px;
+}
+
+.history-info {
+  flex: 1;
+}
+
+.history-text {
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 5px;
+  word-break: break-all;
+}
+
+.history-date {
+  color: #888;
+  font-size: 12px;
+}
+
+/* Scrollbar stilleri */
+.qr-history::-webkit-scrollbar {
+  width: 6px;
+}
+
+.qr-history::-webkit-scrollbar-track {
+  background: #222;
+}
+
+.qr-history::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 3px;
+}
+
+/* Dil çevirilerini güncelle */
+const translations = {
+  en: {
+    // ... mevcut çeviriler ...
+    historyTitle: "QR History"
+  },
+  de: {
+    // ... mevcut çeviriler ...
+    historyTitle: "QR-Verlauf"
+  },
+  fr: {
+    // ... mevcut çeviriler ...
+    historyTitle: "Historique QR"
+  },
+  it: {
+    // ... mevcut çeviriler ...
+    historyTitle: "Cronologia QR"
+  },
+  ru: {
+    // ... mevcut çeviriler ...
+    historyTitle: "История QR"
+  },
+  tr: {
+    // ... mevcut çeviriler ...
+    historyTitle: "QR Geçmişi"
+  }
+};
+
+/* Geçmiş butonu stilleri */
+.history-btn-container {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.history-btn {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.history-btn i {
+  font-size: 1.2rem;
+}
+
+.history-btn:hover {
+  background: #444;
+}
+
+/* Geçmiş sayfası stilleri */
+.history-page .history-wrapper {
+  width: 100%;
+  max-width: 800px;
+  margin: 80px auto 30px;
+  padding: 0 20px;
+}
+
+.history-page-title {
+  color: #fff;
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.back-btn-container {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.back-btn {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.back-btn i {
+  font-size: 1.2rem;
+}
+
+.back-btn:hover {
+  background: #444;
+}
+
+/* Geçmiş sayfası QR listesi stilleri */
+.history-page .qr-history {
+  background: #222;
+  border-radius: 7px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.history-page .history-item {
+  padding: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #333;
+}
+
+.history-page .history-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.history-page .history-item img {
+  width: 80px;
+  height: 80px;
+}
+
+@media (max-width: 430px) {
+  .history-page .history-wrapper {
+    margin-top: 60px;
+  }
+  
+  .history-page-title {
+    font-size: 24px;
+  }
+}
+
+/* İkon stillerini güncelle */
+.history-btn i, .language-btn i, .back-btn i {
+  font-size: 1.2rem;
+}
+
+/* Buton hover efektlerini güncelle */
+.history-btn:hover, .language-btn:hover, .back-btn:hover {
+  background: #444;
+}
+
+/* Buton genel stillerini güncelle */
+.history-btn, .language-btn, .back-btn {
+  background: #333;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 430px) {
+  .history-btn, .language-btn, .back-btn {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+  }
+  
+  .history-btn i, .language-btn i, .back-btn i {
+    font-size: 1.1rem;
+  }
+}
